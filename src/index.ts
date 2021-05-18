@@ -1,10 +1,11 @@
 import { Airgram, Auth, prompt } from "airgram";
-import { airgramCfg } from "./config";
+import config from "../config";
 import updateChatPhoto from "./controllers/updateChatPhoto";
 import updateNewMessage from "./controllers/updateNewMessage";
 import getChats from './actions/getChats'
 
-const airgram = new Airgram(airgramCfg);
+// @ts-ignore
+const airgram = new Airgram(config.airgram);
 const updateChatPhotoController = updateChatPhoto(airgram);
 const updateNewMessageController = updateNewMessage(airgram);
 

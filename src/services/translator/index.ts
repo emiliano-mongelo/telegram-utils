@@ -1,6 +1,7 @@
 import axios from "axios";
 import { path } from "ramda";
-const googleApiKey = "";
+import config from "../../../config";
+
 const defaultUrl = "https://translation.googleapis.com/language/translate/v2";
 
 const fetchTranslation = async ({ url = defaultUrl, from, to, text }) => {
@@ -9,7 +10,8 @@ const fetchTranslation = async ({ url = defaultUrl, from, to, text }) => {
   params.append("format", "text");
   params.append("source", from);
   params.append("target", to);
-  params.append("key", googleApiKey);
+  // @ts-ignore
+  params.append("key", config.google.apiKey);
 
   try {
     const { data } = await axios.post(url, params, {
@@ -18,7 +20,10 @@ const fetchTranslation = async ({ url = defaultUrl, from, to, text }) => {
       },
     });
 
-    const translatedText = path(["data", "translations", 0, "translatedText"], data);
+    const translatedText = path(
+      ["data", "translations", 0, "translatedText"],
+      data
+    );
     console.log("[fetchTranslation] Fetched translation", { translatedText });
     return translatedText;
   } catch (error) {
