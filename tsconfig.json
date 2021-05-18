@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src", "generated", "typings"]
+}

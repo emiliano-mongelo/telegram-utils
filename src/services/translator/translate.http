@@ -1,0 +1,4 @@
+POST https://translation.googleapis.com/language/translate/v2
+Content-Type: application/x-www-form-urlencoded
+
+key=KEY&format=text&source=tr&target=es&q=yeni Twitter kapak
