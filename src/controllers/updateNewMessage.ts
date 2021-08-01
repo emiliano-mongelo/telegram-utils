@@ -10,7 +10,7 @@ const updateNewMessage = (airgram) => async ({ update }) => {
     await handleMrTraderMsg(airgram, message);
   }
 
-  if (message.chatId === chatIds.mrTraderChatGroup || message.chatId === chatIds.mistNftGroup) {
+  if (message.chatId === chatIds.mrTraderChatGroup) {
     console.log("Message received from mrTraderChatGroup", { message });
     await handleMrTraderChatGroupMsg(airgram, message);
   }
