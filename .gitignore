@@ -1,5 +1,9 @@
 node_modules
+libtdjson.dylib
+Makefile
 .dist
 .idea
 .DS_Store
 .env
+db
+logs
