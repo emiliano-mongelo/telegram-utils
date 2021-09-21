@@ -1,10 +1,10 @@
 import { chatIds } from "../constants";
 
-const handleTranslatorMsg = async (airgram: any, message: any) => {
+const handleMsg = async (airgram: any, message: any) => {
   const { content } = message;
   await airgram.api.getChat({ chatId: chatIds.alertsGroup });
 
-  console.log("[handleTranslatorMsg]", { content });
+  console.log("[handleMsg]", { content });
 
   const messagePayload = {
     chatId: chatIds.alertsGroup,
@@ -30,4 +30,4 @@ const handleTranslatorMsg = async (airgram: any, message: any) => {
   }
 };
 
-export default handleTranslatorMsg;
+export default handleMsg;

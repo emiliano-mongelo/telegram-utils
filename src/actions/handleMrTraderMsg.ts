@@ -6,7 +6,7 @@ const handleMrTraderMsg = async (airgram: any, message: any) => {
 
   console.log("[handleMrTraderMsg]", { content });
 
-  await airgram.api.getChat({ chatId: chatIds.translator });
+  await airgram.api.getChat({ chatId: chatIds.alertsGroup });
   const originalText =
     content._ === "messagePhoto" ? content.caption.text : content.text.text;
 
@@ -29,7 +29,7 @@ const handleMrTraderMsg = async (airgram: any, message: any) => {
 
   // @ts-ignore
   if (sendMessageResponse.response.code === 5) {
-    await airgram.api.createPrivateChat({ userId: chatIds.translator });
+    await airgram.api.createPrivateChat({ userId: chatIds.alertsGroup });
     // @ts-ignore
     const sendMessage = await airgram.api.sendMessage(messagePayload);
     console.log("[private]", sendMessage);
