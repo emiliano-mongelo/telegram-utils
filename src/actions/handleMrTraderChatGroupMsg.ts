@@ -10,6 +10,8 @@ const handleMrTraderChatGroupMsg = async (airgram: any, message: any) => {
   const originalText =
     content._ === "messagePhoto" ? content.caption.text : content.text?.text;
 
+  console.log("[handleMrTraderChatGroupMsg:originalText]", { originalText });
+
   if (!originalText) return
 
   const translatedTextEn = await translate({ text: originalText, from: 'tr', to: 'en' });
@@ -23,7 +25,7 @@ const handleMrTraderChatGroupMsg = async (airgram: any, message: any) => {
       _: "inputMessageText",
       text: {
         _: 'formattedText',
-        text: `${senderStr.padEnd(10, '...')}: \n${translatedTextEs} // ${translatedTextEn}`,
+        text: `[${senderStr}]: \n${translatedTextEs} // ${translatedTextEn}`,
         entities: [
           { _: 'textEntity', offset: 0, length: 10, type: { _: 'textEntityTypeCode' } }
         ]
